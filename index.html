@@ -65,7 +65,10 @@
                 <i class="fas fa-leaf text-2xl"></i>
                 <h1 class="text-xl font-bold">GMO Kenya Quiz</h1>
             </div>
-            
+            <div class="streak-counter px-3 py-1 rounded-full text-white font-bold flex items-center">
+                <i class="fas fa-bolt mr-1"></i>
+                <span id="streak">0</span>
+            </div>
         </div>
     </header>
 
@@ -126,7 +129,11 @@
     </main>
 
     <!-- Footer -->
-   
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 GMO Kenya Quiz. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Quiz Data
@@ -287,7 +294,7 @@
                 
                 // Highlight correct option
                 options.forEach(option => {
-                    if (option.textContent.includes(question.answer)) {
+                    if (option.textContent.trim().includes(question.answer)) {
                         option.classList.add('correct');
                     }
                 });
@@ -304,9 +311,9 @@
                 
                 // Highlight correct and incorrect options
                 options.forEach(option => {
-                    if (option.textContent.includes(question.answer)) {
+                    if (option.textContent.trim().includes(question.answer)) {
                         option.classList.add('correct');
-                    } else if (option.textContent.includes(selectedOption)) {
+                    } else if (option.textContent.trim().includes(selectedOption)) {
                         option.classList.add('incorrect');
                     }
                 });
